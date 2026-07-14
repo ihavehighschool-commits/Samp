@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sombath Phimmasone | Profile</title>
+    <!-- นำเข้า Font สวยๆ และ Icon จาก FontAwesome -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', 'Kanit', sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* ใส่รูปพื้นหลังที่คุณเตรียมไว้ */
+            background: url('https://cdn.discordapp.com/attachments/1485852091024150609/1526129388188598363/IMG-20260517-WA0002.jpg?ex=6a55e640&is=6a5494c0&hm=cc882119d71619a06a1db7fbbbc9de00d1189d18fce1a221f52dd82db730a744&') no-repeat center center fixed;
+            background-size: cover;
+            position: relative;
+            padding: 20px;
+        }
+
+        /* Layer เคลือบพื้นหลังให้ดูซอฟต์และอ่านตัวอักษรง่ายขึ้น */
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.45);
+            z-index: 1;
+        }
+
+        /* การ์ดโปรไฟล์สไตล์โปร่งแสง (Glassmorphism) */
+        .profile-card {
+            position: relative;
+            z-index: 2;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            border-radius: 24px;
+            padding: 40px 30px;
+            width: 100%;
+            max-width: 450px;
+            text-align: center;
+            color: #ffffff;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        /* รูปโปรไฟล์ทรงกลม */
+        .avatar-wrapper {
+            position: relative;
+            width: 140px;
+            height: 140px;
+            margin: 0 auto 20px;
+        }
+
+        .avatar {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 4px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            margin-bottom: 15px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        /* กล่องข้อความ Quote กวนๆ */
+        .quote-box {
+            background: rgba(0, 0, 0, 0.3);
+            border-left: 4px solid #ff4757;
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+            font-size: 0.95rem;
+            text-align: left;
+            line-height: 1.6;
+        }
+
+        .quote-box p {
+            color: #e0e0e0;
+        }
+
+        .quote-box .error-text {
+            color: #ff4757;
+            font-weight: 600;
+            margin-top: 5px;
+        }
+
+        .section-title {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+            color: #ddd;
+            font-weight: 300;
+        }
+
+        /* โซนปุ่มติดต่อทรงกลม */
+        .social-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn-circle {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #ffffff;
+            font-size: 1.4rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+
+        /* สีประจำปุ่มต่างๆ */
+        .btn-email { background-color: #ea4335; }
+        .btn-facebook { background-color: #1877f2; }
+        .btn-whatsapp { background-color: #25d366; }
+        .btn-line { background-color: #06c755; }
+
+        /* เอฟเฟกต์เวลาเอาเมาส์ไปวาง (Hover) */
+        .btn-circle:hover {
+            transform: translateY(-5px) scale(1.08);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+            filter: brightness(1.1);
+        }
+
+        /* Animation ตอนโหลดหน้าเว็บ */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="profile-card">
+        <!-- รูปโปรไฟล์ของคุณ -->
+        <div class="avatar-wrapper">
+            <img class="avatar" src="https://cdn.discordapp.com/attachments/1485852091024150609/1526129869820268624/FB_IMG_1765991375446.jpg?ex=6a55e6b3&is=6a549533&hm=20484ca77d4a023faf6ecdb51ab800b2f228a800f72dc4505e69d04474850396&" alt="Sombath Phimmasone">
+        </div>
+
+        <!-- ชื่อ -->
+        <h1>Sombath Phimmasone</h1>
+
+        <!-- ข้อความกวนๆ -->
+        <div class="quote-box">
+            <p><i class="fa-solid fa-spinner fa-spin"></i> กำลังโหลดวันอาทิตย์.... 99%</p>
+            <p class="error-text"><i class="fa-solid fa-circle-exclamation"></i> Error 404: Sombath not found, try searching in Vang Vieng.</p>
+        </div>
+
+        <div class="section-title">Connect with me</div>
+
+        <!-- ปุ่มติดต่อทรงกลม -->
+        <div class="social-buttons">
+            <!-- Email -->
+            <a href="mailto:sombathphimmasone001@gmail.com" class="btn-circle btn-email" title="Email">
+                <i class="fa-regular fa-envelope"></i>
+            </a>
+            <!-- Facebook -->
+            <a href="https://www.facebook.com/share/1Lp3emgqAg/" target="_blank" class="btn-circle btn-facebook" title="Facebook">
+                <i class="fa-brands fa-facebook-f"></i>
+            </a>
+            <!-- Whatsapp -->
+            <a href="https://wa.me/2098591673" target="_blank" class="btn-circle btn-whatsapp" title="WhatsApp">
+                <i class="fa-brands fa-whatsapp"></i>
+            </a>
+            <!-- LINE -->
+            <a href="https://line.me/ti/p/xZHvmv7MAg" target="_blank" class="btn-circle btn-line" title="LINE">
+                <i class="fa-brands fa-line"></i>
+            </a>
+        </div>
+    </div>
+
+</body>
+</html>
